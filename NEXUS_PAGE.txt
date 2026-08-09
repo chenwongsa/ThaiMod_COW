@@ -1,0 +1,90 @@
+================================================================
+NEXUS MOD PAGE — copy/paste แต่ละส่วนตามช่องของ Nexus
+================================================================
+
+--- ชื่อ Mod (Name) ---
+Thai Language Mod - Complete Translation (มอดภาษาไทยฉบับสมบูรณ์)
+
+--- สรุปย่อ (Brief overview) ---
+Complete Thai localization for theHunter: Call of the Wild — full UI,
+missions, dialogue, codex + Thai font & logo. One-click installer,
+no game file editing needed. | แปลไทยทั้งเกม ติดตั้งคลิกเดียว
+
+--- คำอธิบาย (Description — Nexus ใช้ BBCode) ---
+
+[size=5][b]theHunter: Call of the Wild — Thai Language Mod[/b][/size]
+[i]by Wild Horizon Gaming[/i]
+
+[b][ENGLISH][/b]
+Complete Thai translation of theHunter: Call of the Wild (22,000+ strings):
+[list]
+[*]All menus, HUD, settings, store and equipment screens
+[*]All main & side missions and dialogue on every reserve
+[*]Codex, animal descriptions, skills, perks, challenges
+[*]Custom Thai font + Thai main-menu logo
+[*]Terminology reviewed for hunting accuracy across the whole game
+[/list]
+One-click installer (.exe) — automatically finds your game, backs up
+original files, and can cleanly uninstall (or just Verify Files).
+Tested on BOTH Epic Games and Steam versions (0.13.10). The installer
+refuses to run on mismatched game versions, so it cannot corrupt your
+install.
+Works in multiplayer (client-side only). Save games are not touched.
+
+[b][ภาษาไทย][/b]
+มอดแปลภาษาไทย theHunter: Call of the Wild ทั้งเกม (22,000+ ข้อความ):
+[list]
+[*]เมนู HUD ตั้งค่า ร้านค้า อุปกรณ์ ครบทุกหน้าจอ
+[*]ภารกิจหลัก-รอง และบทสนทนาทุกแมพ
+[*]สารานุกรม คำบรรยายสัตว์ ทักษะ ความสามารถเสริม ความท้าทาย
+[*]ฟอนต์ไทยในตัว + โลโก้หน้าเมนูภาษาไทย
+[*]ตรวจทานศัพท์การล่าสัตว์ทั้งเกมให้อ่านลื่นเป็นธรรมชาติ
+[/list]
+
+[size=4][b]วิธีติดตั้ง / Installation[/b][/size]
+[list=1]
+[*]ปิดเกมให้สนิท (Close the game)
+[*]แตก zip แล้วเปิด ThaiMod_Installer_WildHorizonGaming.exe
+   — ถ้า SmartScreen เตือน: More info → Run anyway (ปกติของ exe ที่ไม่ได้ซื้อใบรับรอง)
+   — ถ้าเกมอยู่ใน Program Files: คลิกขวา → Run as administrator
+[*]โปรแกรมหาเกมให้อัตโนมัติ → รอขึ้นเขียว → กด "ติดตั้งมอด (INSTALL)"
+[*]เปิดเกมได้เลย 🇹🇭
+[/list]
+Uninstall: เปิดตัวติดตั้ง → "ถอนการติดตั้ง" หรือ Verify Files ในสโตร์
+
+[size=4][b]สำคัญ / Notes[/b][/size]
+[list]
+[*]เมื่อเกมอัปเดต: Verify Files ก่อน แล้วค่อยติดตั้งซ้ำ (ตัวติดตั้งจะเตือน/บล็อกให้เอง)
+[*][b]Supported & tested on BOTH the Epic Games and Steam versions[/b]
+(game files verified byte-identical across stores; installer detects
+your store automatically). If a future game update changes the files,
+the installer safely refuses instead of risking your install.
+[*][ไทย] [b]รองรับทั้งเวอร์ชัน Epic Games และ Steam[/b] (ทดสอบจริงทั้งคู่ —
+ไฟล์เกมเหมือนกันทุกไบต์ ตัวติดตั้งตรวจจับ store ให้อัตโนมัติ)
+[*]เซฟเกมไม่ถูกแตะต้อง / เล่นออนไลน์ได้ (มอดฝั่งเครื่องเราเท่านั้น)
+[*]EULA/Privacy ในเมนูตั้งค่าคงเป็นอังกฤษ (เอกสารกฎหมายต้องแสดงฉบับเต็ม)
+[/list]
+
+SHA-256 (ThaiMod_Installer_WildHorizonGaming.exe):
+f0f2a57e3e0c0795f5cd69d58c876ab4ad7ce515... (ใส่ค่าเต็มตอนอัปโหลด)
+
+This is a fan-made, free mod. Not affiliated with Avalanche Studios
+Group / Expansive Worlds. Do not re-sell or re-host without permission.
+มอดฟรีจากแฟนเกม ห้ามนำไปขายทุกกรณี
+
+--- Changelog (Version 1.0) ---
+v1.0 (2026-08-04)
+- Initial public release
+- Full Thai translation: UI, missions, dialogue, codex (22,049 strings)
+- Thai font + Thai main-menu logo
+- One-click installer with auto-backup, clean uninstall, and
+  game-update protection
+- Game-wide QA: place-name unification (113 places), hunting-term
+  consistency pass, Thai-mark rendering fix on every UI field
+
+--- การตั้งค่าอื่นบน Nexus ---
+Category: Miscellaneous (หรือ User Interface)
+Language: Thai
+Permission: ตามค่าเริ่มต้น (ห้าม re-upload/ขาย)
+Upload: COTW_ThaiMod_WildHorizonGaming.zip
+Screenshots: nexus_screenshots/ 01→09 ตามลำดับ (01 = ปก)

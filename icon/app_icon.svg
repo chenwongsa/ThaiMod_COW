@@ -1,0 +1,52 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>COTW Thai Mod Installer Icon</title>
+  <desc>Stag antlers inside a hunting-scope ring, with a Thai flag badge — orange on dark, theHunter: Call of the Wild style.</desc>
+  <defs>
+    <clipPath id="flagclip"><rect x="92" y="201" width="72" height="22" rx="7"/></clipPath>
+  </defs>
+
+  <!-- rounded dark tile -->
+  <rect x="8" y="8" width="240" height="240" rx="54" fill="#1a1f26"/>
+  <rect x="8" y="8" width="240" height="240" rx="54" fill="none" stroke="#3a424c" stroke-width="2"/>
+
+  <!-- scope ring + crosshair ticks -->
+  <circle cx="128" cy="124" r="88" fill="none" stroke="#F5A020" stroke-width="7"/>
+  <g stroke="#F5A020" stroke-width="7" stroke-linecap="round">
+    <line x1="128" y1="22" x2="128" y2="42"/>
+    <line x1="26"  y1="124" x2="46" y2="124"/>
+    <line x1="210" y1="124" x2="230" y2="124"/>
+  </g>
+
+  <!-- stag: antlers (right side, mirrored) -->
+  <g stroke="#F5A020" stroke-width="9" stroke-linecap="round" fill="none">
+    <g>
+      <path d="M140 138 C146 112 154 96 172 84"/>
+      <path d="M148 114 L165 105"/>
+      <path d="M143 127 L161 122"/>
+      <path d="M172 84 L184 67"/>
+      <path d="M172 84 L189 85"/>
+    </g>
+    <g transform="translate(256,0) scale(-1,1)">
+      <path d="M140 138 C146 112 154 96 172 84"/>
+      <path d="M148 114 L165 105"/>
+      <path d="M143 127 L161 122"/>
+      <path d="M172 84 L184 67"/>
+      <path d="M172 84 L189 85"/>
+    </g>
+  </g>
+
+  <!-- stag: head + ears -->
+  <path d="M128 206 L110 184 L106 156 L116 142 L140 142 L150 156 L146 184 Z" fill="#F5A020"/>
+  <path d="M106 150 L86 138 L108 130 Z"  fill="#F5A020"/>
+  <path d="M150 150 L170 138 L148 130 Z" fill="#F5A020"/>
+
+  <!-- Thai flag badge (sits on the ring's bottom) -->
+  <g clip-path="url(#flagclip)">
+    <rect x="92" y="201"   width="72" height="4.5" fill="#A51931"/>
+    <rect x="92" y="205.5" width="72" height="3.5" fill="#F4F5F8"/>
+    <rect x="92" y="209"   width="72" height="6"   fill="#2D2A4A"/>
+    <rect x="92" y="215"   width="72" height="3.5" fill="#F4F5F8"/>
+    <rect x="92" y="218.5" width="72" height="4.5" fill="#A51931"/>
+  </g>
+  <rect x="92" y="201" width="72" height="22" rx="7" fill="none" stroke="#12151a" stroke-width="2.5"/>
+</svg>

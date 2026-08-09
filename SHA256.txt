@@ -1,0 +1,2 @@
+ca481cff1c77241cd1ca8a8ef09df7f9e5a9ff4d54e7926c638da644c69c4f47 *C:/Users/sukho/source/TOW/ThaiMod_Release/ThaiMod_Installer_WildHorizonGaming.exe
+564900428a4f6e0774a2aa09afd5767f176c9d82542a59417d9487cf220825a5 *C:/Users/sukho/source/TOW/ThaiMod_Release/COTW_ThaiMod_WildHorizonGaming.zip

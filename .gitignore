@@ -1,0 +1,11 @@
+# Exclude compiled binaries & build artifacts (the flagged .exe etc.) — source only
+*.exe
+*.zip
+ThaiMod_Installer_WildHorizonGaming/
+nexus_screenshots/
+_github_upload/
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
