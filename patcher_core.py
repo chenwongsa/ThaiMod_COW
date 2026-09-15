@@ -8,11 +8,11 @@ import struct, json, os
 from pathlib import Path
 
 SP = 448
-POOLREL = 14_111_712
+POOLREL = 14_130_912    # updated 2026-09-15 for game v0.14 (Old West Weapon Pack patch)
 ALIGN = 0x1000
-STR_ENTRY = 157        # game72 entry: the StringLookup ADF
-FONT_ENTRY = 2529      # game78 entry: font_en.gfx (CFX)
-LOGO_ENTRY = 2562      # game78 entry: UI atlas holding the main-menu logo
+STR_ENTRY = 495         # game72 entry: the StringLookup ADF (was 157 in v0.13)
+FONT_ENTRY = 3697       # game78 entry: font_en.gfx (CFX) (was 2529 in v0.13)
+LOGO_ENTRY = 3722       # game78 entry: UI atlas holding the main-menu logo (was 2562 in v0.13)
 # Thai non-spacing marks that vanish if they are the LAST char (Scaleform bug)
 TRAILMARK = set([0x0E31]) | set(range(0x0E34, 0x0E3B)) | set(range(0x0E47, 0x0E4F))
 
@@ -54,7 +54,7 @@ def build_string_entry(entry, trans, keyov, hk):
     assert insert_pos <= inst_off, "insert past metadata"
 
     blob = bytearray(); newoffs = {}
-    for i in range(22049):
+    for i in range(22082):    # was 22049 in v0.13 · +33 slots for Old West Weapon Pack
         h = struct.unpack_from("<I", entry, SP + i * 8)[0]
         t = struct.unpack_from("<I", entry, SP + i * 8 + 4)[0]
         en = _rd(pool, t) if 0 < t < len(pool) else None
@@ -163,10 +163,31 @@ def install(game_root, moddata, progress=lambda p, m: None):
     root = Path(game_root)
     g72a, g72t, g78a, g78t = arcs(root)
     bkdir = root / "archives_win64" / "_thaimod_backup"
+    ref = json.loads((Path(moddata) / "refinfo.json").read_text(encoding='utf-8'))
+    expected_clean_72 = ref["game72_arc_size"]
     # 1) if already installed, restore first so we build from the clean base
+    #    BUT: if backup manifest is stale (game updated after mod was installed),
+    #    the stored clean sizes are wrong and calling uninstall would DAMAGE the new archives.
     if (bkdir / "manifest.json").exists():
-        progress(2, "คืนค่าเดิมก่อนติดตั้งใหม่...")
-        uninstall(game_root, quiet=True)
+        try:
+            m = json.loads((bkdir / "manifest.json").read_text())
+            manifest_clean72 = m.get("clean72", 0)
+            current_g72 = g72a.stat().st_size
+            # Heuristic: if current file already matches the CURRENT mod's expected clean size,
+            # OR current does NOT match the manifest's clean+patch bounds, backup is stale.
+            stale = (current_g72 == expected_clean_72) or (current_g72 < manifest_clean72)
+        except Exception:
+            stale = True
+        if stale:
+            progress(2, "ตรวจพบเกม update ใหม่ · ลบ backup เก่า (ไม่ถอนการติดตั้ง)...")
+            for p in bkdir.glob("*"):
+                try: p.unlink()
+                except Exception: pass
+            try: bkdir.rmdir()
+            except Exception: pass
+        else:
+            progress(2, "คืนค่าเดิมก่อนติดตั้งใหม่...")
+            uninstall(game_root, quiet=True)
     bkdir.mkdir(parents=True, exist_ok=True)
 
     progress(5, "สำรองไฟล์เดิม (backup)...")

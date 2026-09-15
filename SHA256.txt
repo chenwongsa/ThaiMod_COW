@@ -1,2 +1,7 @@
-ca481cff1c77241cd1ca8a8ef09df7f9e5a9ff4d54e7926c638da644c69c4f47 *C:/Users/sukho/source/TOW/ThaiMod_Release/ThaiMod_Installer_WildHorizonGaming.exe
-564900428a4f6e0774a2aa09afd5767f176c9d82542a59417d9487cf220825a5 *C:/Users/sukho/source/TOW/ThaiMod_Release/COTW_ThaiMod_WildHorizonGaming.zip
+### v1.1 (2026-09-15) — game v0.14 support
+1aacd0b96d2bc3cfbdd456e9d7d8a5a083fffa859d76010e68276a1f5d9a8c1c *ThaiMod_Installer_WildHorizonGaming.exe
+46d2b6121481b5defc245ca65640a254ef19fc387d927fa93c27084b69dee9ff *COTW_ThaiMod_WildHorizonGaming_v1.1.zip
+
+### v1.0 (2026-08-04) — initial release
+ca481cff1c77241cd1ca8a8ef09df7f9e5a9ff4d54e7926c638da644c69c4f47 *ThaiMod_Installer_WildHorizonGaming.exe (v1.0)
+564900428a4f6e0774a2aa09afd5767f176c9d82542a59417d9487cf220825a5 *COTW_ThaiMod_WildHorizonGaming.zip (v1.0)

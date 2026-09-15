@@ -72,7 +72,27 @@ This is a fan-made, free mod. Not affiliated with Avalanche Studios
 Group / Expansive Worlds. Do not re-sell or re-host without permission.
 มอดฟรีจากแฟนเกม ห้ามนำไปขายทุกกรณี
 
---- Changelog (Version 1.0) ---
+--- Changelog ---
+v1.1 (2026-09-15) — game v0.14 support
+- Updated for COTW game version 0.14 (Old West Weapon Pack patch)
+  - New archive layout: StringLookup 157→495, font 2529→3697, logo 2562→3722
+  - Updated POOLREL constant + string slot count (22049 → 22082)
+- 17 new translations for Old West Weapon Pack items:
+  - Weapon names: ปืนโค้ชกัน ฮัมฟรีย์ 10GA · ปืนไรเฟิลควาย ฮวีน .45-90 ·
+    ปืนพก ไมโจ .44-40 สเปเชียล
+  - Scopes: กล้องเล็งไรเฟิล ฟลาวุส 6×17 / 10×17
+  - Ammo: กระสุน 10GA / .44-40 / .45-90 หลายชนิด (Birdshot / Buckshot /
+    Slug / FMJ / Soft Lead / Flat Nose / Cowboy Load)
+  - Fabled fur names: เอคลิปส์ · แซฟฟรอนโกลว์ · เซอร์รัส · สตอร์มโคลค ·
+    สตาร์ทิสเซิล
+- Installer safety fix: detect stale backup from prior game version and
+  skip the destructive uninstall step that would truncate new archives.
+  (v1.0 users who updated the game with v1.0 installed should Verify Files
+  before installing v1.1.)
+- Known limitation: 14 long Old West item descriptions (in-shop info
+  panel text) are still in English in v1.1 — will be added in v1.1.1
+  within a few days.
+
 v1.0 (2026-08-04)
 - Initial public release
 - Full Thai translation: UI, missions, dialogue, codex (22,049 strings)
