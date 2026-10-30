@@ -5,14 +5,19 @@
 **Compatibility:** COTW game update of 30 Oct 2026 (Epic build `3366163` / archives `3364269`). The archive layout is unchanged from v0.14 (StringLookup game72 #495, font game78 #3697, logo game78 #3722), so v1.1 still installs; v1.2 adds translations.
 
 ### Added
-- **The 14 Old West Weapon Pack descriptions** promised in v1.1 (shop info panel): Hween .45-90 Buffalo, Maijo .44-40 Special, Humphrey 10GA coach gun, Flavus 6x/10x scopes, the 10GA birdshot / buckshot / slug loads, .44-40 and .45-90 ammo, and the pack's store description.
-- **4 strings the developers reworded** in recent patches, re-translated: the Game Feeder tutorial, the mineral lick station (with its full species list, using the in-game Thai animal names), the trophy plaque size message, and the mission briefing of "mm5300".
-- **Dominguez–Escalante lore text** (Silver Ridge Peaks) that stayed English since v1.0.
+- **13 Old West Weapon Pack texts** promised in v1.1 (shop info panel): the descriptions of the Hween .45-90 Buffalo, Maijo .44-40 Special, Humphrey 10GA coach gun, Flavus 6x/10x scopes, the 10GA birdshot / buckshot / slug loads, the .44-40 and .45-90 ammo, plus the pack's store description.
+- **4 strings that showed English after recent patches** (reworded or reformatted by the developers): the Game Feeder tutorial page, the mineral lick station (with its full species list, using the in-game Thai animal names), the trophy plaque size message, and the "Animal Whisperer" mission briefing.
+- **Dominguez–Escalante lore text** (Silver Ridge Peaks) that stayed English since v1.0. It is the first string in the game's text pool (offset 0), which the by-text matching skips, so it is now set by its key `lore_rockies_08_description`.
 
 Total: 21,794 strings in Thai. Only an internal "???" name and one placeholder the game itself shows untranslated stay as they are.
 
+### Fixed
+- **String table size is read from the game file** (22,079 entries in game v0.14) instead of a hard-coded 22,082. The 3 extra "slots" were the start of another data array in the same file. v1.1 never wrote there, but a new translation could match one of them, and a pre-release v1.2 build (never published for download) did change one value there.
+- **Safer handling of game updates**: the installer only restores its backup when the game files are exactly the ones it modded. After a game update or Verify Files it discards the old backup instead of restoring it, so it can no longer truncate updated archives, and the uninstall button stays off in that state.
+
 ### Upgrade guide
-- After any game update, just re-run the installer (it detects the update and rebuilds its backup safely). If the game has problems, Verify Files first, then install.
+- From v1.1: run the v1.2 installer and click INSTALL.
+- After a game update: Verify Files in your store, then run the installer again. If it shows a yellow version warning, wait for a mod update.
 
 ---
 

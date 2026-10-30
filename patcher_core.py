@@ -52,9 +52,13 @@ def build_string_entry(entry, trans, keyov, hk):
     assert total == len(entry), "entry size mismatch"
     insert_pos = pool_base + pool_used
     assert insert_pos <= inst_off, "insert past metadata"
+    # (hash, offset) table: offset + count come from the instance header, never hard-coded —
+    # the bytes right after the table belong to another array (v1.2 pre-fix wrote into it)
+    assert struct.unpack_from("<I", entry, 96 + 0x20)[0] == SP - 96, "unexpected table layout (game version mismatch?)"
+    nslots = struct.unpack_from("<I", entry, 96 + 0x28)[0]   # 22079 in game v0.14
 
     blob = bytearray(); newoffs = {}
-    for i in range(22082):    # was 22049 in v0.13 · +33 slots for Old West Weapon Pack
+    for i in range(nslots):
         h = struct.unpack_from("<I", entry, SP + i * 8)[0]
         t = struct.unpack_from("<I", entry, SP + i * 8 + 4)[0]
         en = _rd(pool, t) if 0 < t < len(pool) else None
@@ -124,6 +128,20 @@ def find_game():
     return ""
 
 
+def _backup_matches(game_root):
+    """True only if the game files are still the modded ones this backup was made for.
+    After a game update or Verify Files the backup is stale: restoring it would truncate the new archives."""
+    g72a, g72t, g78a, g78t = arcs(game_root)
+    try:
+        m = json.loads((Path(game_root) / "archives_win64" / "_thaimod_backup" / "manifest.json").read_text())
+        _, so, ss = _tab_entry(g72t.read_bytes(), STR_ENTRY)
+        _, fo, fs = _tab_entry(g78t.read_bytes(), FONT_ENTRY)
+        return (so == (m["clean72"] + ALIGN - 1) // ALIGN * ALIGN and g72a.stat().st_size == so + ss
+                and fo == (m["clean78"] + ALIGN - 1) // ALIGN * ALIGN and g78a.stat().st_size == fo + fs)
+    except Exception:
+        return False
+
+
 def validate(game_root, moddata):
     """Return dict: valid, message, version_ok, already_installed."""
     root = Path(game_root)
@@ -135,8 +153,7 @@ def validate(game_root, moddata):
     if not exe.exists():
         return {"valid": False, "message": "ไม่พบ theHunterCotW_F.exe — เลือกโฟลเดอร์หลักของเกม"}
     ref = json.loads((Path(moddata) / "refinfo.json").read_text(encoding='utf-8'))
-    bkdir = root / "archives_win64" / "_thaimod_backup"
-    already = (bkdir / "manifest.json").exists()
+    already = _backup_matches(root)   # a stale backup (game updated since) does not count
     sz = g72a.stat().st_size
     version_ok = (sz == ref["game72_arc_size"]) or already
     msg = "พบเกม COTW ✓"
@@ -163,22 +180,11 @@ def install(game_root, moddata, progress=lambda p, m: None):
     root = Path(game_root)
     g72a, g72t, g78a, g78t = arcs(root)
     bkdir = root / "archives_win64" / "_thaimod_backup"
-    ref = json.loads((Path(moddata) / "refinfo.json").read_text(encoding='utf-8'))
-    expected_clean_72 = ref["game72_arc_size"]
     # 1) if already installed, restore first so we build from the clean base
     #    BUT: if backup manifest is stale (game updated after mod was installed),
     #    the stored clean sizes are wrong and calling uninstall would DAMAGE the new archives.
     if (bkdir / "manifest.json").exists():
-        try:
-            m = json.loads((bkdir / "manifest.json").read_text())
-            manifest_clean72 = m.get("clean72", 0)
-            current_g72 = g72a.stat().st_size
-            # Heuristic: if current file already matches the CURRENT mod's expected clean size,
-            # OR current does NOT match the manifest's clean+patch bounds, backup is stale.
-            stale = (current_g72 == expected_clean_72) or (current_g72 < manifest_clean72)
-        except Exception:
-            stale = True
-        if stale:
+        if not _backup_matches(root):
             progress(2, "ตรวจพบเกม update ใหม่ · ลบ backup เก่า (ไม่ถอนการติดตั้ง)...")
             for p in bkdir.glob("*"):
                 try: p.unlink()
@@ -248,7 +254,7 @@ def uninstall(game_root, quiet=False, progress=lambda p, m: None):
     g72a, g72t, g78a, g78t = arcs(root)
     bkdir = root / "archives_win64" / "_thaimod_backup"
     man = bkdir / "manifest.json"
-    if not man.exists():
+    if not man.exists() or not _backup_matches(root):
         return False
     m = json.loads(man.read_text())
     if not quiet:
