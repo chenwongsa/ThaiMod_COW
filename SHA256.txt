@@ -1,3 +1,7 @@
+### v1.2 (2026-10-30) — game update 30 Oct 2026 + 18 translations
+92696d1a9bb08cb806b5b7341d384c7b132714d7a7626cd2501f0705fd08f0ef *ThaiMod_Installer_WildHorizonGaming.exe
+f19ef748adf5db10daf0478a1340d825b8a5f39692c366c65c312d1069eb6f01 *COTW_ThaiMod_WildHorizonGaming_v1.2.zip
+
 ### v1.1 (2026-09-15) — game v0.14 support
 1aacd0b96d2bc3cfbdd456e9d7d8a5a083fffa859d76010e68276a1f5d9a8c1c *ThaiMod_Installer_WildHorizonGaming.exe
 3eb61a362d6ceea0f2d118e12752db1a9afa83cefc624ce1c58250e29c711c05 *COTW_ThaiMod_WildHorizonGaming_v1.1.zip

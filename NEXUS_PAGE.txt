@@ -73,6 +73,17 @@ Group / Expansive Worlds. Do not re-sell or re-host without permission.
 มอดฟรีจากแฟนเกม ห้ามนำไปขายทุกกรณี
 
 --- Changelog ---
+v1.2 (2026-10-30) — game update 30 Oct 2026 + 18 more translations
+- Verified on the 30 Oct 2026 game update (Epic build 3366163 / archives
+  3364269): archive layout unchanged, mod works. After a game update just
+  run the installer again.
+- Added the 14 Old West Weapon Pack descriptions promised in v1.1
+  (Hween, Maijo, Humphrey, Flavus scopes, 10GA / .44-40 / .45-90 ammo).
+- Re-translated 4 strings the developers reworded (Game Feeder tutorial,
+  mineral lick station + species list, trophy plaque message, mm5300).
+- Translated the Dominguez-Escalante lore text (Silver Ridge Peaks).
+- 21,794 strings in Thai.
+
 v1.1 (2026-09-15) — game v0.14 support
 - Updated for COTW game version 0.14 (Old West Weapon Pack patch)
   - New archive layout: StringLookup 157→495, font 2529→3697, logo 2562→3722

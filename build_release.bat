@@ -1,5 +1,5 @@
 @echo off
-REM Build ThaiMod Installer v1.1 with PyInstaller (onedir mode)
+REM Build ThaiMod Installer v1.2 with PyInstaller (onedir mode)
 cd /d "%~dp0"
 echo === Cleaning previous build ===
 if exist build rmdir /s /q build
@@ -8,7 +8,8 @@ if exist dist rmdir /s /q dist
 echo.
 echo === PyInstaller build ===
 pyinstaller ^
-  --onedir --windowed ^
+  --onedir --windowed --noupx ^
+  --version-file "version_info.txt" ^
   --name "ThaiMod_Installer_WildHorizonGaming" ^
   --icon "icon\app_icon.ico" ^
   --add-data "moddata;moddata" ^

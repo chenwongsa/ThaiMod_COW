@@ -1,10 +1,11 @@
 {
- "game_version": "0.14",
+ "game_version": "0.14 (verified again on the 2026-10-30 update: Epic code 3366163 / archives 3364269)",
  "game72_arc_size": 891215872,
  "game78_arc_size": 889061376,
  "logo_entry_offset": 702517248,
  "logo_entry_size": 979552,
  "font_entry_index": 3697,
  "font_orig_offset": 687132672,
- "font_orig_size": 103876
+ "font_orig_size": 103876,
+ "mod_version": "1.2"
 }
